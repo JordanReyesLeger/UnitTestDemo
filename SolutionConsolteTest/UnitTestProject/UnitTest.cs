@@ -10,7 +10,7 @@ namespace UnitTestProject
         [TestMethod]
         public void MetodoLargo()
         {
-            Thread.Sleep(new TimeSpan(0, 2, 0));
+            Thread.Sleep(new TimeSpan(0, 1, 0));
         }
         [TestMethod]
         public void MetodoMediano()
@@ -21,7 +21,7 @@ namespace UnitTestProject
         [TestMethod]
         public void MetodoCorto()
         {
-            Thread.Sleep(new TimeSpan(0, 0, 30));
+            Thread.Sleep(new TimeSpan(0, 1, 0));
         }
 
         [TestMethod]

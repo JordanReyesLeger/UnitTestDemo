@@ -30,7 +30,7 @@ jobs:
 - job: 'JobWindows'
   displayName: 'Job Windows'
   pool:
-    vmImage: 'Azure Pipelines'
+    vmImage: 'windows-2019'
   steps:
   - task: CmdLine@2
     inputs:

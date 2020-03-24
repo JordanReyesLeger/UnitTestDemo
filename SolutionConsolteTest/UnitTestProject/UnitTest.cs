@@ -23,5 +23,47 @@ namespace UnitTestProject
         {
             Thread.Sleep(new TimeSpan(0, 0, 30));
         }
+
+        [TestMethod]
+        public void MetodoMediano02()
+        {
+            Thread.Sleep(new TimeSpan(0, 1, 0));
+        }
+
+        [TestMethod]
+        public void MetodoMediano03()
+        {
+            Thread.Sleep(new TimeSpan(0, 1, 0));
+        }
+
+        [TestMethod]
+        public void MetodoMediano04()
+        {
+            Thread.Sleep(new TimeSpan(0, 1, 0));
+        }
+
+        [TestMethod]
+        public void MetodoMediano05()
+        {
+            Thread.Sleep(new TimeSpan(0, 1, 0));
+        }
+
+        [TestMethod]
+        public void MetodoMediano06()
+        {
+            Thread.Sleep(new TimeSpan(0, 1, 0));
+        }
+
+        [TestMethod]
+        public void MetodoMediano07()
+        {
+            Thread.Sleep(new TimeSpan(0, 1, 0));
+        }
+
+        [TestMethod]
+        public void MetodoMediano08()
+        {
+            Thread.Sleep(new TimeSpan(0, 1, 0));
+        }
     }
 }

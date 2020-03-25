@@ -7,42 +7,46 @@ trigger:
 - master
 
 jobs:
-- job: 'JobLinux'
-  displayName: 'Job Linux'
-  pool:
-    vmImage: 'ubuntu-latest'
-
-  steps:
-  - task: CmdLine@2
-    inputs:
-      script: |
-        echo Preparando tarea para escribir el texto $(Agent.OS)
-        echo "Agente con el SO: $(Agent.OS)" >$(build.artifactstagingdirectory)/ArchivoLinux.txt
-        echo Se escribió el texto
-    displayName: 'Creando archivo'
-  - task: PublishBuildArtifacts@1
-    inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-      ArtifactName: 'Artefactos'
-      publishLocation: 'Container'
-    displayName: 'Publicando archivos'
-
 - job: 'JobWindows'
   displayName: 'Job Windows'
   pool:
     vmImage: 'windows-2019'
   steps:
-  - task: CmdLine@2
+  - task: NuGetToolInstaller@1
+    displayName: 'Use NuGet 4.4.1'
     inputs:
-      script: |
-         echo Preparando tarea para escribir el texto
-         echo "Agente con el SO: $(Agent.OS)" >$(build.artifactstagingdirectory)\ArchivoWindows.txt
-         echo Se escribió el texto
-    displayName: 'Command Line Script'
-  - task: PublishBuildArtifacts@1
-    displayName: 'Publicando archivos'
-    inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-      ArtifactName: 'Artefactos'
+      versionSpec: 4.4.1
 
+  - task: NuGetCommand@2
+    displayName: 'NuGet restore'
+
+  - task: VSBuild@1
+    displayName: 'Build solution **\*.sln'
+
+  - task: VSTest@2
+    displayName: 'VsTest - testAssemblies'
+    inputs:
+      testAssemblyVer2: |
+        **\*Test*.dll
+        !**\*TestAdapter.dll
+        !**\obj\**
+    enabled: false
+
+  - task: PublishSymbols@2
+    displayName: 'Publish symbols path'
+    inputs:
+      PublishSymbols: false
+
+  - task: CopyFiles@2
+    displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+    inputs:
+      SourceFolder: '$(System.DefaultWorkingDirectory)'
+      TargetFolder: '$(build.artifactstagingdirectory)'
+
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact'
+    inputs:
+      PathtoPublish: '$(build.artifactstagingdirectory)'
+      ArtifactName: '$(Parameters.ArtifactName)'
+    condition: succeededOrFailed()
 

@@ -79,6 +79,7 @@ jobs:
         !**\*TestAdapter.dll
         !**\obj\**
       searchFolder: '$(System.ArtifactsDirectory)'
+      vsTestVersion: 'toolsInstaller'
 
 
 

@@ -19,7 +19,7 @@ jobs:
 
   - task: NuGetCommand@2
     inputs:
-      restoreSolution: '$(solution)'
+      restoreSolution: '\SolutionConsolteTest\SolutionConsolteTest.sln'
     enabled: true
 
   - task: VSBuild@1

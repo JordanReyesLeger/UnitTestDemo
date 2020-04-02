@@ -14,11 +14,14 @@ jobs:
   - task: NuGetToolInstaller@1
     displayName: 'Use NuGet 4.4.1'
     inputs:
-      versionSpec: 4.4.1
-    enabled: false
+      versionSpec: '4.4.1'
+      checkLatest: true
 
   - task: NuGetCommand@2
-    displayName: 'NuGet restore'
+    inputs:
+      command: 'restore'
+      restoreSolution: '**/*.sln'
+      feedsToUse: 'select'
 
   - task: VSBuild@1
     displayName: 'Build solution **\*.sln'

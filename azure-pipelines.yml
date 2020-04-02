@@ -66,6 +66,10 @@ jobs:
       downloadType: 'specific'
       downloadPath: '$(System.ArtifactsDirectory)'
 
+  - task: VisualStudioTestPlatformInstaller@1
+    inputs:
+      packageFeedSelector: 'nugetOrg'
+      versionSelector: 'latestStable'
   - task: VSTest@2
     displayName: 'VsTest - testAssemblies copy'
     inputs:

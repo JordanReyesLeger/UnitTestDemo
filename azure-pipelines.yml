@@ -22,7 +22,7 @@ jobs:
       command: 'restore'
       restoreSolution: '**/*.sln'
       feedsToUse: 'select'
-    enabled: 
+    enabled: false
 
   - task: VSBuild@1
     displayName: 'Build solution **\*.sln'

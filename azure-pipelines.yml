@@ -20,6 +20,7 @@ jobs:
   - task: NuGetCommand@2
     inputs:
       restoreSolution: '**\*.sln'
+      packagesdirectory: '..\packages'
     enabled: true
 
   - task: VSBuild@1

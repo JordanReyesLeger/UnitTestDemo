@@ -19,15 +19,11 @@ jobs:
 
   - task: NuGetCommand@2
     inputs:
-      command: 'restore'
-      restoreSolution: '**/*.sln'
-      feedsToUse: 'select'
-    enabled: false
+      restoreSolution: '$(solution)'
+    enabled: true
 
   - task: VSBuild@1
     displayName: 'Build solution **\*.sln'
-    inputs:
-      restoreNugetPackages: true
 
   - task: VSTest@2
     displayName: 'VsTest - testAssemblies'

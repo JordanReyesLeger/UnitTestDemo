@@ -20,8 +20,6 @@ jobs:
   - task: NuGetCommand@2
     inputs:
       command: 'restore'
-      feedsToUse: 'config'
-      nugetConfigPath: 'nuget.config'
     enabled: true
 
   - task: VSBuild@1

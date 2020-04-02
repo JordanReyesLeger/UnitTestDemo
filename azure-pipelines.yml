@@ -19,8 +19,9 @@ jobs:
 
   - task: NuGetCommand@2
     inputs:
-      restoreSolution: '**\*.sln'
-      packagesdirectory: '..\packages'
+      command: 'restore'
+      feedsToUse: 'config'
+      nugetConfigPath: 'nuget.config'
     enabled: true
 
   - task: VSBuild@1

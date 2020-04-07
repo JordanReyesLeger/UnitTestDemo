@@ -24,6 +24,7 @@ jobs:
 
   - task: VSBuild@1
     displayName: 'Build solution **\*.sln'
+    enabled: false
 
   - task: VSTest@2
     displayName: 'VsTest - testAssemblies'
@@ -80,6 +81,7 @@ jobs:
         !**\obj\**
       searchFolder: '$(System.ArtifactsDirectory)'
       vsTestVersion: 'toolsInstaller'
+    enabled: false
 
 
 

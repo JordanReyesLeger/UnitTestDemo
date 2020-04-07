@@ -84,7 +84,7 @@ jobs:
         !**\obj\**
       searchFolder: '$(System.ArtifactsDirectory)'
       vsTestVersion: 'toolsInstaller'
-    enabled: false
+    enabled: true
 
 
 

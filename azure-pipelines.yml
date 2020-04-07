@@ -9,8 +9,7 @@ trigger:
 jobs:
 - job: 'JobCompilacion'
   displayName: 'JobCompilacion'
-  pool:
-    vmImage: 'windows-2019'
+  pool: "Default"
   steps:
   - task: NuGetToolInstaller@1
     displayName: 'Use NuGet 5.3.1'

@@ -21,12 +21,10 @@ jobs:
     inputs:
       command: 'restore'
     enabled: true
-  - task: MSBuild@1
+  - task: DotNetCoreCLI@2
     inputs:
-      solution: '**/*.sln'
-      createLogFile: true
-      logFileVerbosity: 'detailed'
-    enabled: true
+      command: 'build'
+      projects: '**\*.sln'
 
   - task: VSBuild@1
     displayName: 'Build solution **\*.sln'

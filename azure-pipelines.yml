@@ -21,10 +21,13 @@ jobs:
     inputs:
       command: 'restore'
     enabled: true
+  - task: MSBuild@1
+    inputs:
+      solution: '**/*.sln'
 
   - task: VSBuild@1
     displayName: 'Build solution **\*.sln'
-    enabled: true
+    enabled: false
 
   - task: VSTest@2
     displayName: 'VsTest - testAssemblies'

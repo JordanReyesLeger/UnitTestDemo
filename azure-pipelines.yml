@@ -26,6 +26,8 @@ jobs:
       solution: '**/*.sln'
       msbuildLocationMethod: 'location'
       msbuildLocation: 'C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin'
+      createLogFile: true
+      logFileVerbosity: 'detailed'
     enabled: true
 
   - task: VSBuild@1

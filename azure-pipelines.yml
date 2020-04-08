@@ -80,7 +80,7 @@ jobs:
     inputs:
       testSelector: 'testAssemblies'
       testAssemblyVer2: |
-        **\UnitTestProject\**\*Test*.dll
+        **\*Test*.dll
         !**\*TestAdapter.dll
         !**\obj\**
       searchFolder: '$(System.ArtifactsDirectory)'
